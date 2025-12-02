@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu des Couleurs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Écran d'accueil -->
+    <div id="home-screen" class="screen active">
+        <div class="background-shapes">
+            <div class="shape shape-circle shape-yellow"></div>
+            <div class="shape shape-circle shape-purple"></div>
+            <div class="shape shape-diamond shape-pink"></div>
+            <div class="shape shape-square shape-orange"></div>
+            <div class="shape shape-circle shape-blue-large"></div>
+            <div class="shape shape-circle shape-teal"></div>
+        </div>
+        
+        <h1 class="main-title">Jeu des Couleurs</h1>
+        
+        <div class="card">
+            <input type="text" id="player-name" placeholder="Ton prénom ici..." class="name-input">
+            <button id="start-btn" class="play-button">Jouer</button>
+            <button id="history-btn" class="history-button">Historique des Scores</button>
+        </div>
+    </div>
+
+    <!-- Écran de sélection de niveau -->
+    <div id="level-screen" class="screen">
+        <div class="background-shapes">
+            <div class="shape shape-circle shape-yellow"></div>
+            <div class="shape shape-circle shape-purple"></div>
+            <div class="shape shape-diamond shape-pink"></div>
+            <div class="shape shape-square shape-orange"></div>
+            <div class="shape shape-circle shape-blue-large"></div>
+            <div class="shape shape-circle shape-teal"></div>
+        </div>
+        
+        <header class="game-header">
+            <div class="header-left">
+                <span class="star-icon">★</span>
+                <span class="game-title-header">Jeu des Couleurs</span>
+            </div>
+            <button id="back-btn" class="back-button">←</button>
+        </header>
+        
+        <h2 class="level-title">Choisis ton Niveau !</h2>
+        
+        <div class="level-cards">
+            <div class="level-card" data-level="facile">
+                <div class="level-stars">
+                    <span class="star">★</span>
+                </div>
+                <div class="level-name">Facile</div>
+            </div>
+            <div class="level-card" data-level="moyen">
+                <div class="level-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <div class="level-name">Moyen</div>
+            </div>
+            <div class="level-card" data-level="difficile">
+                <div class="level-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <div class="level-name">Difficile</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran de jeu -->
+    <div id="game-screen" class="screen">
+        <div class="background-shapes">
+            <div class="shape shape-circle shape-yellow"></div>
+            <div class="shape shape-circle shape-purple"></div>
+            <div class="shape shape-diamond shape-pink"></div>
+            <div class="shape shape-square shape-orange"></div>
+            <div class="shape shape-circle shape-blue-large"></div>
+            <div class="shape shape-circle shape-teal"></div>
+        </div>
+        <div class="game-header">
+            <div class="header-left">
+                <span class="star-icon">★</span>
+                <span class="game-title-header">Jeu des Couleurs</span>
+            </div>
+            <div class="score-display">
+                <span class="score-label">Score:</span>
+                <span id="score-value" class="score-value">0</span>
+            </div>
+            <div class="level-selector">
+                <label for="level-select" class="level-select-label">Niveau:</label>
+                <select id="level-select" class="level-select">
+                    <option value="facile">Facile</option>
+                    <option value="moyen">Moyen</option>
+                    <option value="difficile">Difficile</option>
+                </select>
+            </div>
+            <button id="back-game-btn" class="back-button">←</button>
+        </div>
+        
+        <div class="game-container">
+            <h2 id="game-instruction" class="game-instruction">Clique sur le <span class="target-color">ROUGE</span> !</h2>
+            
+            <div id="color-grid" class="color-grid"></div>
+        </div>
+        
+        <!-- Popup de félicitations -->
+        <div id="success-popup" class="popup hidden">
+            <div class="popup-content">
+                <div class="popup-decorations">
+                    <span class="popup-star">★</span>
+                    <span class="confetti">🎉</span>
+                    <span class="heart">💖</span>
+                </div>
+                <h3 class="popup-title">Bravo !</h3>
+                <p class="popup-score">Score: <span id="popup-score-value">0</span></p>
+                <button id="continue-btn" class="continue-button">Continuer</button>
+            </div>
+        </div>
+        
+        <!-- Popup d'erreur -->
+        <div id="error-popup" class="popup hidden">
+            <div class="popup-content error-popup-content">
+                <div class="popup-decorations">
+                    <span class="error-icon">✗</span>
+                </div>
+                <h3 class="popup-title error-title">Mauvaise couleur !</h3>
+                <p class="error-message">Essaie encore !</p>
+                <button id="error-ok-btn" class="error-button">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran d'historique des scores -->
+    <div id="history-screen" class="screen">
+        <div class="background-gradient"></div>
+        <header class="game-header">
+            <div class="header-left">
+                <span class="star-icon">★</span>
+                <span class="game-title-header">Historique des Scores</span>
+            </div>
+            <button id="back-history-btn" class="back-button">←</button>
+        </header>
+        
+        <div class="history-container">
+            <div id="history-list" class="history-list">
+                <!-- Les scores seront affichés ici -->
+            </div>
+            <button id="clear-history-btn" class="clear-history-button">Effacer l'historique</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
