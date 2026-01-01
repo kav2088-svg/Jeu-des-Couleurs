@@ -7,7 +7,7 @@
 body {
     font-family: 'Comic Sans MS', cursive;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -106,7 +106,7 @@ body {
     font-weight: bold;
     color: white;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     text-shadow: 
         3px 3px 0 #FF0000,
         6px 6px 0 #FF8C00,
@@ -116,6 +116,17 @@ body {
         18px 18px 0 #8B00FF;
     z-index: 1;
     position: relative;
+}
+
+.home-subtitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #FFB347;
+    text-align: center;
+    margin-bottom: 3rem;
+    z-index: 1;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .card {
@@ -140,13 +151,13 @@ body {
     font-size: 16px;
     font-family: 'Comic Sans MS', cursive;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
     outline: none;
     transition: border-color 0.3s;
 }
 
 .name-input::placeholder {
-    color: #D2B48C;
+    color: #FFB347;
     opacity: 0.7;
 }
 
@@ -236,13 +247,13 @@ body {
 
 .star-icon {
     font-size: 1.5rem;
-    color: #1E90FF;
+    color: #FFB347;
 }
 
 .game-title-header {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #000000;
+    color: #FFB347;
 }
 
 .score-display {
@@ -259,13 +270,13 @@ body {
 .score-label {
     font-size: 1rem;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
 }
 
 .score-value {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
 }
 
 .level-selector {
@@ -282,7 +293,7 @@ body {
 .level-select-label {
     font-size: 0.9rem;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
 }
 
 .level-select {
@@ -291,7 +302,7 @@ body {
     border-radius: 10px;
     font-size: 1rem;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
     background-color: white;
     cursor: pointer;
     outline: none;
@@ -312,7 +323,7 @@ body {
     border-radius: 50%;
     border: 2px solid #000;
     background-color: white;
-    color: #000000;
+    color: #FFB347;
     cursor: pointer;
     font-size: 1.2rem;
     display: flex;
@@ -329,7 +340,7 @@ body {
 .level-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #000000;
+    color: #FFB347;
     text-align: center;
     margin-top: 8rem;
     margin-bottom: 3rem;
@@ -387,17 +398,17 @@ body {
 }
 
 .level-card[data-level="facile"] .star {
-    color: #006400;
+    color: #FFB347;
     font-size: 3rem;
 }
 
 .level-card[data-level="moyen"] .star {
-    color: #00008B;
+    color: #FFB347;
     font-size: 3rem;
 }
 
 .level-card[data-level="difficile"] .star {
-    color: #8B0000;
+    color: #FFB347;
     font-size: 3rem;
 }
 
@@ -407,15 +418,15 @@ body {
 }
 
 .level-card[data-level="facile"] .level-name {
-    color: #006400;
+    color: #FFB347;
 }
 
 .level-card[data-level="moyen"] .level-name {
-    color: #00008B;
+    color: #FFB347;
 }
 
 .level-card[data-level="difficile"] .level-name {
-    color: #8B0000;
+    color: #FFB347;
 }
 
 /* Écran de jeu */
@@ -438,13 +449,13 @@ body {
 .game-instruction {
     font-size: 2rem;
     font-weight: bold;
-    color: #000000;
+    color: #FFB347;
     text-align: center;
     margin-bottom: 3rem;
 }
 
 .target-color {
-    color: #FF0000;
+    color: #FFB347;
 }
 
 .color-grid {
@@ -534,19 +545,19 @@ body {
 .popup-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #000000;
+    color: #FFB347;
     margin-bottom: 1rem;
 }
 
 .popup-score {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
     margin-bottom: 2rem;
 }
 
 .popup-score span {
-    color: #D2B48C;
+    color: #FFB347;
 }
 
 .continue-button {
@@ -658,12 +669,12 @@ body {
 .history-item-name {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
 }
 
 .history-item-details {
     font-size: 0.9rem;
-    color: #D2B48C;
+    color: #FFB347;
     display: flex;
     gap: 1rem;
 }
@@ -671,12 +682,12 @@ body {
 .history-item-score {
     font-size: 2rem;
     font-weight: bold;
-    color: #D2B48C;
+    color: #FFB347;
 }
 
 .history-empty {
     text-align: center;
-    color: #D2B48C;
+    color: #FFB347;
     font-size: 1.2rem;
     padding: 3rem;
 }
@@ -701,7 +712,7 @@ body {
 .app-footer {
     text-align: center;
     z-index: 100;
-    color: #D2B48C;
+    color: #FFB347;
     font-size: 0.9rem;
     font-weight: bold;
     padding: 2rem 1rem;
@@ -728,6 +739,11 @@ body {
 @media (max-width: 768px) {
     .main-title {
         font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .home-subtitle {
+        font-size: 1.1rem;
         margin-bottom: 2rem;
     }
     
@@ -799,6 +815,7 @@ body {
 @media (max-width: 480px) {
     .main-title {
         font-size: 2rem;
+        margin-bottom: 0.75rem;
         text-shadow: 
             2px 2px 0 #FF0000,
             4px 4px 0 #FF8C00,
@@ -806,6 +823,12 @@ body {
             8px 8px 0 #32CD32,
             10px 10px 0 #1E90FF,
             12px 12px 0 #8B00FF;
+    }
+    
+    .home-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 0 1rem;
     }
     
     .card {
