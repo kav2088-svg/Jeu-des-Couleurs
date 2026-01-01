@@ -30,15 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeEventListeners() {
     // Bouton de démarrage
     const startBtn = document.getElementById('start-btn');
-    startBtn.addEventListener('click', handleStartGame);
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            showScreen('level-screen');
+        });
+    }
     
-    // Entrée dans le champ nom
+    // Entrée dans le champ nom (si présent)
     const nameInput = document.getElementById('player-name');
-    nameInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            handleStartGame();
-        }
-    });
+    if (nameInput) {
+        nameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleStartGame();
+            }
+        });
+    }
     
     // Boutons de retour
     const backBtn = document.getElementById('back-btn');
@@ -85,11 +91,13 @@ function initializeEventListeners() {
         }
     });
     
-    // Bouton historique
+    // Bouton historique (si présent)
     const historyBtn = document.getElementById('history-btn');
-    historyBtn.addEventListener('click', () => {
-        showHistory();
-    });
+    if (historyBtn) {
+        historyBtn.addEventListener('click', () => {
+            showHistory();
+        });
+    }
     
     // Bouton retour depuis l'historique
     const backHistoryBtn = document.getElementById('back-history-btn');
@@ -116,19 +124,21 @@ function showScreen(screenId) {
 // Démarrer le jeu
 function handleStartGame() {
     const nameInput = document.getElementById('player-name');
-    const name = nameInput.value.trim();
-    
-    if (name === '') {
-        nameInput.style.borderColor = '#FF4444';
-        nameInput.placeholder = 'Entre ton prénom !';
-        setTimeout(() => {
-            nameInput.style.borderColor = '#E0E0E0';
-            nameInput.placeholder = 'Ton prénom ici...';
-        }, 2000);
-        return;
+    if (nameInput) {
+        const name = nameInput.value.trim();
+        
+        if (name === '') {
+            nameInput.style.borderColor = '#FF4444';
+            nameInput.placeholder = 'Entre ton prénom !';
+            setTimeout(() => {
+                nameInput.style.borderColor = '#E0E0E0';
+                nameInput.placeholder = 'Ton prénom ici...';
+            }, 2000);
+            return;
+        }
+        
+        gameState.playerName = name;
     }
-    
-    gameState.playerName = name;
     showScreen('level-screen');
 }
 

@@ -9,23 +9,151 @@
 <body>
     <!-- Écran d'accueil -->
     <div id="home-screen" class="screen active">
-        <div class="background-shapes">
-            <div class="shape shape-circle shape-yellow"></div>
-            <div class="shape shape-circle shape-purple"></div>
-            <div class="shape shape-diamond shape-pink"></div>
-            <div class="shape shape-square shape-orange"></div>
-            <div class="shape shape-circle shape-blue-large"></div>
-            <div class="shape shape-circle shape-teal"></div>
+        <header class="main-header">
+            <div class="header-left">
+                <span class="header-icon">🌍</span>
+                <span class="header-title">Jeu des Couleurs</span>
+            </div>
+            <button class="connection-button">Connexion</button>
+        </header>
+
+        <div class="home-content">
+            <div class="main-card">
+                <!-- Section Bienvenue -->
+                <section class="welcome-section">
+                    <div class="section-header">
+                        <span class="section-icon">🌍</span>
+                        <span class="section-label">APPRENDRE & S'AMUSER</span>
+                    </div>
+                    <div class="welcome-content">
+                        <div class="welcome-text">
+                            <h1 class="welcome-title">Bienvenue dans le Monde des Couleurs</h1>
+                            <p class="welcome-description">
+                                Une application magique conçue pour éveiller la curiosité des enfants de 3 à 6 ans. 
+                                Ici, on apprend à identifier les couleurs tout en s'amusant dans un univers joyeux et sécurisé.
+                            </p>
+                        </div>
+                        <div class="welcome-image">
+                            <div class="illustration-image"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Points Clés -->
+                <section class="key-points-section">
+                    <div class="section-header">
+                        <span class="section-icon">⭐</span>
+                        <span class="section-label">Points Clés</span>
+                    </div>
+                    <div class="key-points-grid">
+                        <div class="key-point-card">
+                            <div class="key-point-icon">😊</div>
+                            <h3 class="key-point-title">Ludique</h3>
+                            <p class="key-point-text">Apprentissage par le jeu pour maximiser l'engagement et le plaisir.</p>
+                        </div>
+                        <div class="key-point-card">
+                            <div class="key-point-icon">👁️</div>
+                            <h3 class="key-point-title">Visuel</h3>
+                            <p class="key-point-text">Illustrations claires et couleurs vives pour une meilleure mémorisation.</p>
+                        </div>
+                        <div class="key-point-card">
+                            <div class="key-point-icon">👆</div>
+                            <h3 class="key-point-title">Interactif</h3>
+                            <p class="key-point-text">Interface tactile simple, spécialement conçue pour les petites mains.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comment jouer -->
+                <section class="how-to-play-section">
+                    <h2 class="section-title">Comment jouer ?</h2>
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Écoute la consigne</h3>
+                                <p class="step-text">Le jeu te demande de trouver une couleur précise (ex: "Trouve le Rouge").</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Cherche l'objet</h3>
+                                <p class="step-text">Regarde bien les différents objets colorés qui apparaissent à l'écran.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Gagne des étoiles</h3>
+                                <p class="step-text">Tape sur la bonne couleur pour gagner et passer au niveau suivant !</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pour les parents -->
+                <section class="parents-section">
+                    <div class="section-header">
+                        <span class="section-icon">👨‍👩‍👧</span>
+                        <span class="section-label">Pour les parents</span>
+                    </div>
+                    <p class="parents-text">
+                        Cette application a été développée pour offrir un temps d'écran positif et constructif. 
+                        Aucun score stressant, pas de publicité intrusive, juste de la découverte à son rythme. 
+                        Vous pouvez accompagner votre enfant ou le laisser explorer en autonomie.
+                    </p>
+                    <div class="parent-badges">
+                        <div class="badge">
+                            <span class="badge-icon">🔒</span>
+                            <span class="badge-text">Sans Pub</span>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-icon">🛡️</span>
+                            <span class="badge-text">Sécurisé</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pourquoi télécharger -->
+                <section class="why-download-section">
+                    <h2 class="section-title">Pourquoi télécharger ?</h2>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            <div class="benefit-content">
+                                <strong>Reconnaissance visuelle</strong>
+                                <p>Aide l'enfant à distinguer les nuances.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            <div class="benefit-content">
+                                <strong>Enrichissement du vocabulaire</strong>
+                                <p>Apprend le nom des couleurs et des objets.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            <div class="benefit-content">
+                                <strong>Motricité fine</strong>
+                                <p>Développe la précision par le toucher.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="cta-section">
+                    <h2 class="cta-title">Prêt à commencer l'aventure colorée ?</h2>
+                    <button id="start-btn" class="start-game-button">
+                        <span class="play-icon">▶</span>
+                        Commencer le Jeu
+                    </button>
+                </section>
+            </div>
         </div>
-        
-        <h1 class="main-title">Jeu des Couleurs</h1>
-        
-        <div class="card">
-            <input type="text" id="player-name" placeholder="Ton prénom ici..." class="name-input">
-            <button id="start-btn" class="play-button">Jouer</button>
-            <button id="history-btn" class="history-button">Historique des Scores</button>
-        </div>
-        
+
         <footer class="app-footer">
             <p>© 2026 – Jeu des Couleurs</p>
             <p>Créé par Véronique Kouamé</p>
