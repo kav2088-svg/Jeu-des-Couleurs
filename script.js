@@ -20,6 +20,16 @@ const colorMap = {
     'VERT LIME': '#32CD32'
 };
 
+// Variable globale pour stocker les voix
+let availableVoices = [];
+
+// Charger les voix disponibles
+function loadVoices() {
+    if ('speechSynthesis' in window) {
+        availableVoices = window.speechSynthesis.getVoices();
+    }
+}
+
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
@@ -27,17 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Charger les voix disponibles (nécessaire pour certains navigateurs)
     if ('speechSynthesis' in window) {
-        // Les voix peuvent ne pas être disponibles immédiatement
-        window.speechSynthesis.getVoices();
+        // Charger immédiatement
+        loadVoices();
         
-        // Recharger les voix après un court délai (nécessaire pour Chrome)
+        // Recharger après un court délai (nécessaire pour Chrome)
         setTimeout(() => {
-            window.speechSynthesis.getVoices();
+            loadVoices();
         }, 100);
         
         // Écouter l'événement voiceschanged pour charger les voix quand elles sont disponibles
         window.speechSynthesis.onvoiceschanged = () => {
-            window.speechSynthesis.getVoices();
+            loadVoices();
         };
     }
 });
@@ -339,23 +349,36 @@ function playErrorSound() {
 // Parler avec la synthèse vocale
 function speakText(text, lang = 'fr-FR') {
     if ('speechSynthesis' in window) {
-        // Arrêter toute parole en cours
-        window.speechSynthesis.cancel();
-        
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = lang;
-        utterance.rate = 1.0; // Vitesse normale
-        utterance.pitch = 1.0; // Hauteur normale
-        utterance.volume = 1.0; // Volume maximum
-        
-        // Essayer d'utiliser une voix française
-        const voices = window.speechSynthesis.getVoices();
-        const frenchVoice = voices.find(voice => voice.lang.startsWith('fr'));
-        if (frenchVoice) {
-            utterance.voice = frenchVoice;
+        try {
+            // Arrêter toute parole en cours
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = lang;
+            utterance.rate = 1.0; // Vitesse normale
+            utterance.pitch = 1.0; // Hauteur normale
+            utterance.volume = 1.0; // Volume maximum
+            
+            // Recharger les voix si nécessaire
+            if (availableVoices.length === 0) {
+                loadVoices();
+            }
+            
+            // Essayer d'utiliser une voix française
+            const frenchVoice = availableVoices.find(voice => voice.lang.startsWith('fr'));
+            if (frenchVoice) {
+                utterance.voice = frenchVoice;
+            }
+            
+            // Gérer les erreurs
+            utterance.onerror = (event) => {
+                console.log('Erreur de synthèse vocale:', event.error);
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        } catch (error) {
+            console.log('Erreur lors de la synthèse vocale:', error);
         }
-        
-        window.speechSynthesis.speak(utterance);
     }
 }
 
