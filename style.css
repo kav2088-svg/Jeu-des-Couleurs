@@ -37,7 +37,7 @@ body {
 
 .description-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     padding: 2rem;
     margin: 0 auto;
 }
@@ -51,65 +51,240 @@ body {
 }
 
 .description-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: #000000;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.description-intro {
+    background: linear-gradient(135deg, #f0f8ff 0%, #fff8dc 100%);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+    border-left: 4px solid #1E90FF;
+}
+
+.intro-text {
+    font-size: 1.3rem;
+    color: #333333;
+    line-height: 1.8;
+    text-align: center;
+    margin: 0;
+}
+
 .description-section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .description-subtitle {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #000000;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .description-text {
     font-size: 1.2rem;
     color: #333333;
-    line-height: 1.6;
+    line-height: 1.8;
     text-align: justify;
 }
 
-.description-list {
-    font-size: 1.2rem;
-    color: #333333;
-    line-height: 2;
-    padding-left: 2rem;
+/* Étapes du jeu */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
-.description-list li {
+.step-box {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border-left: 5px solid #1E90FF;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.step-box:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1E90FF 0%, #4169E1 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-text-box {
+    flex: 1;
+}
+
+.step-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000000;
     margin-bottom: 0.5rem;
 }
 
+.step-description {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Grille des niveaux */
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.level-info-box {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 3px solid transparent;
+}
+
+.level-info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.level-facile {
+    border-color: #90EE90;
+    background: linear-gradient(135deg, #f0fff0 0%, #ffffff 100%);
+}
+
+.level-moyen {
+    border-color: #87CEEB;
+    background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+}
+
+.level-difficile {
+    border-color: #FFB6C1;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffffff 100%);
+}
+
+.level-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.level-facile .level-icon {
+    color: #006400;
+}
+
+.level-moyen .level-icon {
+    color: #00008B;
+}
+
+.level-difficile .level-icon {
+    color: #8B0000;
+}
+
+.level-info-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 0.75rem;
+}
+
+.level-info-text {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Grille des caractéristiques */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-item {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.feature-text {
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.feature-text strong {
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
 .start-game-button {
-    background-color: #FF4444;
+    background: linear-gradient(135deg, #FF4444 0%, #FF6B6B 100%);
     color: white;
     border: none;
-    border-radius: 12px;
-    padding: 1.5rem 3rem;
+    border-radius: 16px;
+    padding: 1.5rem 4rem;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
-    display: block;
-    margin: 2rem auto 0;
-    box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .start-game-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(255, 68, 68, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
 }
 
 .start-game-button:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
 }
 
 /* Écran de saisie du nom */
@@ -817,6 +992,7 @@ body {
 @media (max-width: 768px) {
     .description-container {
         padding: 1rem;
+        max-width: 100%;
     }
     
     .description-content {
@@ -824,21 +1000,58 @@ body {
     }
     
     .description-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+    
+    .intro-text {
+        font-size: 1.1rem;
     }
     
     .description-subtitle {
         font-size: 1.5rem;
     }
     
-    .description-text,
-    .description-list {
+    .description-text {
         font-size: 1rem;
+    }
+    
+    .steps-container {
+        gap: 1rem;
+    }
+    
+    .step-box {
+        padding: 1.2rem;
+        gap: 1rem;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .step-title {
+        font-size: 1.2rem;
+    }
+    
+    .step-description {
+        font-size: 1rem;
+    }
+    
+    .levels-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .start-game-button {
         padding: 1.2rem 2rem;
         font-size: 1.2rem;
+        width: 100%;
     }
     
     .main-title {
@@ -922,26 +1135,79 @@ body {
     }
     
     .description-title {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .description-intro {
+        padding: 1rem;
+    }
+    
+    .intro-text {
+        font-size: 1rem;
     }
     
     .description-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
     
-    .description-text,
-    .description-list {
+    .description-text {
+        font-size: 0.95rem;
+    }
+    
+    .step-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .step-number {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .step-title {
+        font-size: 1.1rem;
+    }
+    
+    .step-description {
         font-size: 0.9rem;
     }
     
-    .description-list {
-        padding-left: 1.5rem;
+    .level-info-box {
+        padding: 1.5rem;
+    }
+    
+    .level-icon {
+        font-size: 2rem;
+    }
+    
+    .level-info-title {
+        font-size: 1.3rem;
+    }
+    
+    .level-info-text {
+        font-size: 0.9rem;
+    }
+    
+    .feature-item {
+        padding: 1.2rem;
+    }
+    
+    .feature-icon {
+        font-size: 2rem;
+    }
+    
+    .feature-text {
+        font-size: 0.9rem;
     }
     
     .start-game-button {
         padding: 1rem 1.5rem;
-        font-size: 1rem;
+        font-size: 1.1rem;
         width: 100%;
     }
     
