@@ -5,13 +5,12 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    color: #333;
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-height: 100vh;
+    font-family: 'Comic Sans MS', cursive;
+    font-weight: bold;
+    color: #D2B48C;
+    overflow: hidden;
+    height: 100vh;
     width: 100vw;
-    background: linear-gradient(to right, #ffffff, #f0f8ff);
 }
 
 .screen {
@@ -23,16 +22,16 @@ body {
 }
 
 .screen.active {
-    display: block;
-    overflow-y: auto;
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Écran d'accueil */
 #home-screen {
-    background: linear-gradient(to right, #ffffff, #f0f8ff);
+    background-color: #B8E6D3;
     position: relative;
-    min-height: 100vh;
 }
 
 .background-shapes {
@@ -102,364 +101,102 @@ body {
     right: 25%;
 }
 
-/* Header principal */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.header-icon {
-    font-size: 1.5rem;
-}
-
-.header-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e3a8a;
-}
-
-.connection-button {
-    background-color: #e0f2fe;
-    color: #1e3a8a;
-    border: none;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.connection-button:hover {
-    background-color: #bae6fd;
-}
-
-/* Contenu principal */
-.home-content {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.main-card {
-    background-color: white;
-    border-radius: 24px;
-    padding: 3rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    margin-bottom: 2rem;
-}
-
-/* Section Bienvenue */
-.welcome-section {
+.main-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
     margin-bottom: 3rem;
+    text-shadow: 
+        3px 3px 0 #FF0000,
+        6px 6px 0 #FF8C00,
+        9px 9px 0 #FFD700,
+        12px 12px 0 #32CD32,
+        15px 15px 0 #1E90FF,
+        18px 18px 0 #8B00FF;
+    z-index: 1;
+    position: relative;
 }
 
-.section-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.section-icon {
-    font-size: 1.25rem;
-}
-
-.section-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #1e3a8a;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.welcome-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-}
-
-.welcome-text {
+.card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-}
-
-.welcome-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1e3a8a;
-    line-height: 1.2;
-}
-
-.welcome-description {
-    font-size: 1.1rem;
-    color: #64748b;
-    line-height: 1.6;
-}
-
-.welcome-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.illustration-image {
-    width: 100%;
-    max-width: 400px;
-    height: 250px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #ffa07a 0%, #ffd700 25%, #90ee90 50%, #48d1cc 75%, #87ceeb 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.illustration-image::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60%;
-    background: linear-gradient(to top, #ffa07a 0%, #ffd700 20%, #90ee90 40%, #48d1cc 60%, #87ceeb 80%);
-    border-radius: 0 0 16px 16px;
-}
-
-/* Points Clés */
-.key-points-section {
-    margin-bottom: 3rem;
-}
-
-.key-points-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
-.key-point-card {
-    background-color: #f8fafc;
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
+.name-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #E0E0E0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Comic Sans MS', cursive;
+    font-weight: bold;
+    color: #D2B48C;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.name-input::placeholder {
+    color: #D2B48C;
+    opacity: 0.7;
+}
+
+.name-input:focus {
+    border-color: #4CAF50;
+}
+
+.play-button {
+    background-color: #FF4444;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.key-point-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.key-point-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.key-point-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e3a8a;
-    margin-bottom: 0.75rem;
-}
-
-.key-point-text {
-    font-size: 0.95rem;
-    color: #64748b;
-    line-height: 1.5;
-}
-
-/* Comment jouer */
-.how-to-play-section {
-    margin-bottom: 3rem;
-}
-
-.section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e3a8a;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.steps-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.step-item {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-}
-
-.step-number {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: #1e3a8a;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    font-weight: 600;
-    flex-shrink: 0;
-}
-
-.step-content {
-    flex: 1;
-}
-
-.step-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e3a8a;
-    margin-bottom: 0.5rem;
-}
-
-.step-text {
-    font-size: 1rem;
-    color: #64748b;
-    line-height: 1.6;
-}
-
-/* Pour les parents */
-.parents-section {
-    margin-bottom: 3rem;
-}
-
-.parents-text {
-    font-size: 1rem;
-    color: #64748b;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.parent-badges {
-    display: flex;
-    gap: 1rem;
-}
-
-.badge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #e0f2fe;
-    color: #1e3a8a;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.badge-icon {
-    font-size: 1.1rem;
-}
-
-/* Pourquoi télécharger */
-.why-download-section {
-    margin-bottom: 3rem;
-}
-
-.benefits-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.benefit-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-}
-
-.check-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #10b981;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
-    font-weight: 600;
-    flex-shrink: 0;
-}
-
-.benefit-content {
-    flex: 1;
-}
-
-.benefit-content strong {
-    display: block;
-    font-size: 1.1rem;
-    color: #1e3a8a;
-    margin-bottom: 0.25rem;
-}
-
-.benefit-content p {
-    font-size: 0.95rem;
-    color: #64748b;
-    line-height: 1.5;
-}
-
-/* Call to Action */
-.cta-section {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.cta-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e3a8a;
-    margin-bottom: 2rem;
-}
-
-.start-game-button {
-    background-color: #1e3a8a;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 1.25rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: background-color 0.2s, transform 0.2s;
-    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
-}
-
-.start-game-button:hover {
-    background-color: #1e40af;
+.play-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(30, 58, 138, 0.4);
+    box-shadow: 0 7px 20px rgba(255, 68, 68, 0.4);
 }
 
-.start-game-button:active {
+.play-button:active {
     transform: translateY(0);
 }
 
-.play-icon {
+.history-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 2rem;
     font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 0.5rem;
+}
+
+.history-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(76, 175, 80, 0.4);
+}
+
+.history-button:active {
+    transform: translateY(0);
 }
 
 /* Écran de sélection de niveau */
@@ -499,13 +236,13 @@ body {
 
 .star-icon {
     font-size: 1.5rem;
-    color: #FF0000;
+    color: #D2B48C;
 }
 
 .game-title-header {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
 }
 
 .score-display {
@@ -522,13 +259,13 @@ body {
 .score-label {
     font-size: 1rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
 }
 
 .score-value {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
 }
 
 .level-selector {
@@ -545,7 +282,7 @@ body {
 .level-select-label {
     font-size: 0.9rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
 }
 
 .level-select {
@@ -554,7 +291,7 @@ body {
     border-radius: 10px;
     font-size: 1rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
     background-color: white;
     cursor: pointer;
     outline: none;
@@ -591,7 +328,7 @@ body {
 .level-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
     text-align: center;
     margin-top: 8rem;
     margin-bottom: 3rem;
@@ -649,17 +386,17 @@ body {
 }
 
 .level-card[data-level="facile"] .star {
-    color: #006400;
+    color: #D2B48C;
     font-size: 3rem;
 }
 
 .level-card[data-level="moyen"] .star {
-    color: #00008B;
+    color: #D2B48C;
     font-size: 3rem;
 }
 
 .level-card[data-level="difficile"] .star {
-    color: #8B0000;
+    color: #D2B48C;
     font-size: 3rem;
 }
 
@@ -669,15 +406,15 @@ body {
 }
 
 .level-card[data-level="facile"] .level-name {
-    color: #006400;
+    color: #D2B48C;
 }
 
 .level-card[data-level="moyen"] .level-name {
-    color: #00008B;
+    color: #D2B48C;
 }
 
 .level-card[data-level="difficile"] .level-name {
-    color: #8B0000;
+    color: #D2B48C;
 }
 
 /* Écran de jeu */
@@ -700,13 +437,13 @@ body {
 .game-instruction {
     font-size: 2rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
     text-align: center;
     margin-bottom: 3rem;
 }
 
 .target-color {
-    color: #FF0000;
+    color: #D2B48C;
 }
 
 .color-grid {
@@ -796,19 +533,19 @@ body {
 .popup-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
     margin-bottom: 1rem;
 }
 
 .popup-score {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #FF0000;
+    color: #D2B48C;
     margin-bottom: 2rem;
 }
 
 .popup-score span {
-    color: #FF0000;
+    color: #D2B48C;
 }
 
 .continue-button {
@@ -834,7 +571,7 @@ body {
 
 .error-icon {
     font-size: 4rem;
-    color: #FF4444;
+    color: #D2B48C;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -844,12 +581,12 @@ body {
 }
 
 .error-title {
-    color: #FF4444;
+    color: #D2B48C;
 }
 
 .error-message {
     font-size: 1.2rem;
-    color: #FF0000;
+    color: #D2B48C;
     margin-bottom: 2rem;
 }
 
@@ -920,12 +657,12 @@ body {
 .history-item-name {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #32CD32;
+    color: #D2B48C;
 }
 
 .history-item-details {
     font-size: 0.9rem;
-    color: #32CD32;
+    color: #D2B48C;
     display: flex;
     gap: 1rem;
 }
@@ -933,12 +670,12 @@ body {
 .history-item-score {
     font-size: 2rem;
     font-weight: bold;
-    color: #32CD32;
+    color: #D2B48C;
 }
 
 .history-empty {
     text-align: center;
-    color: #32CD32;
+    color: #D2B48C;
     font-size: 1.2rem;
     padding: 3rem;
 }
@@ -961,33 +698,17 @@ body {
 
 /* Footer */
 .app-footer {
-    text-align: center;
-    z-index: 100;
-    color: #64748b;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 2rem 1rem;
-    margin-top: 2rem;
-}
-
-#home-screen .app-footer {
-    position: relative;
-    background: transparent;
-}
-
-#level-screen .app-footer,
-#game-screen .app-footer,
-#history-screen .app-footer {
     position: fixed;
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0;
-    margin: 0;
-    pointer-events: none;
-    color: #FF0000;
+    text-align: center;
+    z-index: 100;
+    color: #D2B48C;
+    font-size: 0.9rem;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
 }
 
 .app-footer p {
@@ -996,57 +717,6 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .main-header {
-        padding: 1rem 1.5rem;
-    }
-    
-    .header-title {
-        font-size: 1.1rem;
-    }
-    
-    .connection-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-    }
-    
-    .home-content {
-        padding: 1rem;
-    }
-    
-    .main-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .welcome-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .welcome-title {
-        font-size: 2rem;
-    }
-    
-    .welcome-description {
-        font-size: 1rem;
-    }
-    
-    .illustration-image {
-        height: 200px;
-    }
-    
-    .key-points-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .section-title {
-        font-size: 1.75rem;
-    }
-    
-    .cta-title {
-        font-size: 1.75rem;
-    }
-    
     .main-title {
         font-size: 2.5rem;
         margin-bottom: 2rem;
@@ -1118,79 +788,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .main-header {
-        padding: 0.75rem 1rem;
-    }
-    
-    .header-title {
-        font-size: 1rem;
-    }
-    
-    .connection-button {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.8rem;
-    }
-    
-    .home-content {
-        padding: 0.5rem;
-    }
-    
-    .main-card {
-        padding: 1.5rem 1rem;
-        border-radius: 16px;
-    }
-    
-    .welcome-title {
-        font-size: 1.5rem;
-    }
-    
-    .welcome-description {
-        font-size: 0.9rem;
-    }
-    
-    .illustration-image {
-        height: 150px;
-    }
-    
-    .key-point-card {
-        padding: 1.5rem;
-    }
-    
-    .key-point-icon {
-        font-size: 2.5rem;
-    }
-    
-    .section-title {
-        font-size: 1.5rem;
-    }
-    
-    .step-number {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-    }
-    
-    .step-title {
-        font-size: 1.1rem;
-    }
-    
-    .step-text {
-        font-size: 0.9rem;
-    }
-    
-    .parent-badges {
-        flex-direction: column;
-    }
-    
-    .cta-title {
-        font-size: 1.5rem;
-    }
-    
-    .start-game-button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-    }
-    
     .main-title {
         font-size: 2rem;
         text-shadow: 
