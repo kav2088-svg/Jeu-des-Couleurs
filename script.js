@@ -24,6 +24,22 @@ const colorMap = {
 document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
     loadHistory();
+    
+    // Charger les voix disponibles (nécessaire pour certains navigateurs)
+    if ('speechSynthesis' in window) {
+        // Les voix peuvent ne pas être disponibles immédiatement
+        window.speechSynthesis.getVoices();
+        
+        // Recharger les voix après un court délai (nécessaire pour Chrome)
+        setTimeout(() => {
+            window.speechSynthesis.getVoices();
+        }, 100);
+        
+        // Écouter l'événement voiceschanged pour charger les voix quand elles sont disponibles
+        window.speechSynthesis.onvoiceschanged = () => {
+            window.speechSynthesis.getVoices();
+        };
+    }
 });
 
 // Gestionnaires d'événements
@@ -294,10 +310,126 @@ function generateColorGrid() {
     });
 }
 
+// Jouer un son d'erreur
+function playErrorSound() {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        // Créer un son d'erreur (ton bas et désagréable)
+        oscillator.type = 'sawtooth';
+        oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.2);
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.2);
+    } catch (error) {
+        // Si l'API Web Audio n'est pas disponible, ignorer silencieusement
+        console.log('Audio non disponible');
+    }
+}
+
+// Parler avec la synthèse vocale
+function speakText(text, lang = 'fr-FR') {
+    if ('speechSynthesis' in window) {
+        // Arrêter toute parole en cours
+        window.speechSynthesis.cancel();
+        
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang;
+        utterance.rate = 1.0; // Vitesse normale
+        utterance.pitch = 1.0; // Hauteur normale
+        utterance.volume = 1.0; // Volume maximum
+        
+        // Essayer d'utiliser une voix française
+        const voices = window.speechSynthesis.getVoices();
+        const frenchVoice = voices.find(voice => voice.lang.startsWith('fr'));
+        if (frenchVoice) {
+            utterance.voice = frenchVoice;
+        }
+        
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+// Dire "Bravo !"
+function sayBravo() {
+    speakText('Bravo ! 🎉');
+}
+
+// Prononcer le nom d'une couleur
+function sayColor(colorName) {
+    // Mapper les noms de couleurs pour une meilleure prononciation
+    const colorPronunciations = {
+        'ROUGE': 'rouge',
+        'BLEU': 'bleu',
+        'VERT': 'vert',
+        'JAUNE': 'jaune',
+        'ORANGE': 'orange',
+        'VIOLET': 'violet',
+        'ROSE': 'rose',
+        'CYAN': 'cyan',
+        'VERT LIME': 'vert lime'
+    };
+    
+    const pronunciation = colorPronunciations[colorName] || colorName.toLowerCase();
+    speakText(pronunciation);
+}
+
+// Jouer un son d'acclamation
+function playSuccessSound() {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Créer une mélodie joyeuse (do-mi-sol-do)
+        const notes = [523.25, 659.25, 783.99, 1046.50]; // Do, Mi, Sol, Do (octave supérieure)
+        let currentTime = audioContext.currentTime;
+        
+        notes.forEach((frequency, index) => {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(frequency, currentTime);
+            
+            gainNode.gain.setValueAtTime(0, currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.2, currentTime + 0.05);
+            gainNode.gain.linearRampToValueAtTime(0, currentTime + 0.15);
+            
+            oscillator.start(currentTime);
+            oscillator.stop(currentTime + 0.15);
+            
+            currentTime += 0.1;
+        });
+    } catch (error) {
+        console.log('Audio non disponible');
+    }
+}
+
 // Gérer le clic sur une couleur
 function handleColorClick(clickedColor, squareElement) {
+    // Prononcer le nom de la couleur cliquée
+    sayColor(clickedColor);
+    
     if (clickedColor === gameState.currentColor) {
         // Bonne réponse
+        playSuccessSound(); // Jouer le son d'acclamation
+        
+        // Attendre un peu avant de dire "Bravo !" pour que la couleur soit prononcée
+        setTimeout(() => {
+            sayBravo(); // Dire "Bravo !" 🎉
+        }, 500);
+        
         gameState.score++;
         updateScoreDisplay();
         squareElement.style.transform = 'scale(1.1)';
@@ -308,6 +440,7 @@ function handleColorClick(clickedColor, squareElement) {
         }, 300);
     } else {
         // Mauvaise réponse
+        playErrorSound(); // Jouer le son d'erreur
         squareElement.style.transform = 'scale(0.9)';
         squareElement.style.border = '3px solid #FF0000';
         squareElement.style.boxShadow = '0 0 20px rgba(255, 0, 0, 0.8)';
@@ -338,8 +471,17 @@ function updateScoreDisplay() {
 // Afficher la popup de succès
 function showSuccessPopup() {
     const popup = document.getElementById('success-popup');
+    const gameScreen = document.getElementById('game-screen');
     updateScoreDisplay();
     popup.classList.remove('hidden');
+    
+    // Ajouter l'effet de scintillement
+    gameScreen.classList.add('sparkle-effect');
+    
+    // Retirer l'effet après l'animation
+    setTimeout(() => {
+        gameScreen.classList.remove('sparkle-effect');
+    }, 1000);
 }
 
 // Cacher la popup
