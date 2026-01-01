@@ -7,8 +7,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Écran d'accueil -->
-    <div id="home-screen" class="screen active">
+    <!-- Page de description (première page) -->
+    <div id="description-screen" class="screen active">
+        <div class="description-container">
+            <div class="description-content">
+                <h1 class="description-title">Bienvenue dans le Jeu des Couleurs !</h1>
+                
+                <div class="description-section">
+                    <h2 class="description-subtitle">🎨 Comment jouer ?</h2>
+                    <p class="description-text">
+                        Le jeu te demande de trouver une couleur précise parmi plusieurs carrés colorés. 
+                        Clique sur le bon carré pour gagner des points !
+                    </p>
+                </div>
+
+                <div class="description-section">
+                    <h2 class="description-subtitle">⭐ Les niveaux</h2>
+                    <ul class="description-list">
+                        <li><strong>Facile</strong> : Pour commencer en douceur</li>
+                        <li><strong>Moyen</strong> : Un peu plus de défi</li>
+                        <li><strong>Difficile</strong> : Pour les experts des couleurs !</li>
+                    </ul>
+                </div>
+
+                <div class="description-section">
+                    <h2 class="description-subtitle">🏆 Objectif</h2>
+                    <p class="description-text">
+                        Trouve le plus de couleurs possible et bat ton record ! 
+                        Chaque bonne réponse te fait gagner un point.
+                    </p>
+                </div>
+
+                <button id="start-game-btn" class="start-game-button">Commencer le Jeu</button>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p>© 2026 – Jeu des Couleurs</p>
+            <p>Créé par Véronique Kouamé</p>
+        </footer>
+    </div>
+
+    <!-- Écran de saisie du nom (page de jeu) -->
+    <div id="home-screen" class="screen">
         <div class="background-shapes">
             <div class="shape shape-circle shape-yellow"></div>
             <div class="shape shape-circle shape-purple"></div>

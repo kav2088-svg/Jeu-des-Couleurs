@@ -94,8 +94,16 @@ function initializeEventListeners() {
     // Bouton retour depuis l'historique
     const backHistoryBtn = document.getElementById('back-history-btn');
     backHistoryBtn.addEventListener('click', () => {
-        showScreen('home-screen');
+        showScreen('description-screen');
     });
+    
+    // Bouton "Commencer le Jeu" depuis la page de description
+    const startGameBtn = document.getElementById('start-game-btn');
+    if (startGameBtn) {
+        startGameBtn.addEventListener('click', () => {
+            showScreen('home-screen');
+        });
+    }
     
     // Bouton effacer l'historique
     const clearHistoryBtn = document.getElementById('clear-history-btn');
